@@ -1,30 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LogicPersonaje : MonoBehaviour
 {
-    public float velMovement = 5.0f;
-    public float velRotate = 200.0f;
+    public float velMovement = 20f;
+    public float velRotate = 120f;
     private Animator anim;
-    public float x, z;
-    // Start is called before the first frame update
+    private Rigidbody rb;
+
     void Start()
     {
         anim = GetComponent<Animator>();
-
+        rb = GetComponent<Rigidbody>(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        transform.Rotate(0,x*Time.deltaTime*velRotate,0);
-        transform.Translate(0,0,z*Time.deltaTime*velMovement);
+        transform.Rotate(0, x * Time.fixedDeltaTime * velRotate, 0);
 
-        anim.SetFloat("VelX",x);
-        anim.SetFloat("VelY",z);
+        Vector3 movement = transform.forward * z * velMovement * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + movement);
+
+        anim.SetFloat("VelX", x);
+        anim.SetFloat("VelY", z);
     }
 }
