@@ -23,6 +23,7 @@ public class LogicPersonaje : MonoBehaviour
         Vector3 movement = transform.forward * z * velMovement * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
 
+
         anim.SetFloat("VelX", x);
         anim.SetFloat("VelY", z);
     }
