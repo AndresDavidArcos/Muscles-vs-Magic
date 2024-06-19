@@ -121,8 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5450138969901748032}
   rock: {fileID: 9067556174079797999, guid: 289e0719d67561d3b95e0f7b9cae4290, type: 3}
-  shotForce: 1500
-  shotRate: 0.5
+  shotForce: 1000
+  shotRate: 0.8
 --- !u!1 &9163015246038860896
 GameObject:
   m_ObjectHideFlags: 0
