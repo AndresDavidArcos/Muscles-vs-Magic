@@ -18,8 +18,10 @@ public class Shot : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if(Time.time > shotRateTime)
+            if(Time.time > shotRateTime && GameManager.Instance.rockAmmo > 0)
             {
+                GameManager.Instance.rockAmmo --;
+                
                 GameObject newRock;
 
                 newRock = Instantiate(rock, spawnPoint.position, spawnPoint.rotation);
