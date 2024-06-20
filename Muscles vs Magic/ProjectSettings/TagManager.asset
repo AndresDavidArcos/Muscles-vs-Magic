@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - RockAmmo
+  - Rock
   layers:
   - Default
   - TransparentFX
