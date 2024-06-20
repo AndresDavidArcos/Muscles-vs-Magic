@@ -5,13 +5,13 @@ using UnityEngine;
 public class LogicEnemyShuriken : MonoBehaviour
 {
     public HudManager hudManager;
+    public GameObject victoryCanvas;
     public float health = 300;
     void Start()
     {
-        
+        hudManager.UpdateHealthEnemyText("Vida del enemigo: " + health);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -23,7 +23,8 @@ public class LogicEnemyShuriken : MonoBehaviour
         hudManager.UpdateHealthEnemyText("Vida del enemigo: " + health);
         if (health < 0)
         {
-            print("Has ganado");
+            Time.timeScale = 0;
+            victoryCanvas.SetActive(true);
         }
     }
 }

@@ -28,7 +28,6 @@ public class HudManager : MonoBehaviour
 
     public void UpdateShurikensText(string shurikenText)
     {
-        Debug.Log("CANVAS ACTUALIZA SHURIKEN TEXT");
         shurikens.text = shurikenText;
     }
 }

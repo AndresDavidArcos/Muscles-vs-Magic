@@ -8,7 +8,7 @@ public class LogicPersonajeShuriken : MonoBehaviour
     public float velRotate = 120;
     private Animator anim;
     private Rigidbody rb;
-    public int health = 200;
+    public int health = 20000;
     public int energy = 0;
     public int shurikens = 0;
     public int energyRequiredToStealShuriken = 2;
@@ -23,7 +23,6 @@ public class LogicPersonajeShuriken : MonoBehaviour
         hudManager.UpdateHealthText("Vida: " + health);
         hudManager.UpdateEnergyText("Energia: " + energy);
         hudManager.UpdateShurikensText("Shurikens: " + shurikens);
-
     }
 
     void FixedUpdate()
@@ -46,6 +45,7 @@ public class LogicPersonajeShuriken : MonoBehaviour
         hudManager.UpdateHealthText("Vida: " + health);
         if(health < 0)
         {
+            Time.timeScale = 0;
             defeatCanvas.SetActive(true);
         }
     }
@@ -67,7 +67,9 @@ public class LogicPersonajeShuriken : MonoBehaviour
     {
         if (shurikens >= 1 && currentAllyShuriken == null)
         {
-            currentAllyShuriken = Instantiate(allyShurikenPrefab);
+            currentAllyShuriken = Instantiate(allyShurikenPrefab, transform.position + transform.forward * 6, Quaternion.identity);
+            currentAllyShuriken.transform.SetParent(transform);
+            currentAllyShuriken.transform.localScale = new Vector3(10000, 10000, 10000);
         }
     }
 

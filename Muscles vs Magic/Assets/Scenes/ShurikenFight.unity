@@ -666,8 +666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83, y: -191}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 147.1948, y: -191.05707}
+  m_SizeDelta: {x: 288.3896, y: 30.1141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341568930
 MonoBehaviour:
@@ -702,7 +702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enemy health: '
+  m_Text: 'Vida enemiga: 300'
 --- !u!222 &341568931
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -772,10 +772,10 @@ MonoBehaviour:
   hudManager: {fileID: 938400460}
   velMovement: 20
   velRotate: 120
-  health: 200
-  energy: 0
+  health: 20000
+  energy: 2
   shurikens: 0
-  energyRequiredToStealShuriken: 2
+  energyRequiredToStealShuriken: 0
   defeatCanvas: {fileID: 1915804107}
   allyShurikenPrefab: {fileID: 4315852882796393104, guid: a3a56453c884bda4ca853d603ebb4ae0, type: 3}
   currentAllyShuriken: {fileID: 0}
@@ -3755,6 +3755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2023310089}
   - component: {fileID: 2023310088}
+  - component: {fileID: 2023310090}
   m_Layer: 0
   m_Name: Lance_Crown
   m_TagString: Untagged
@@ -3785,13 +3786,34 @@ Transform:
   m_GameObject: {fileID: 2023310087}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.34494564, z: -0, w: 0.93862265}
-  m_LocalPosition: {x: 37.50002, y: 36.1, z: 96.29996}
+  m_LocalPosition: {x: 37.12, y: 36.1, z: 95.97}
   m_LocalScale: {x: 0.05000002, y: 0.05, z: 0.05000002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 293668179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -40.357, z: 0}
+--- !u!65 &2023310090
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023310087}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 70, y: 170, z: 100}
+  m_Center: {x: -150, y: 0, z: 0}
 --- !u!1 &2029828397
 GameObject:
   m_ObjectHideFlags: 0

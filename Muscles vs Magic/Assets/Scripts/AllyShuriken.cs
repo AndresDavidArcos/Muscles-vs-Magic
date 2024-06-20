@@ -5,8 +5,8 @@ using UnityEngine;
 public class AllyShuriken : MonoBehaviour
 {
     public float rotationSpeed = 360f;
-    public float shootSpeed = 70f;
-    public GameObject enemy; 
+    public float shootSpeed = 100f;
+    public GameObject enemy;
     public GameObject ally;
     public LogicPersonajeShuriken playerController;
     public LogicEnemyShuriken enemyController;
@@ -17,11 +17,7 @@ public class AllyShuriken : MonoBehaviour
     {
         playerController = GameObject.FindObjectOfType<LogicPersonajeShuriken>();
         enemyController = GameObject.FindObjectOfType<LogicEnemyShuriken>();
-        ally = GameObject.Find("mashle");
-        if (ally != null)
-        {
-            transform.SetParent(ally.transform);
-        }
+        enemy = GameObject.Find("Lance_Crown");
     }
 
     void Update()
@@ -29,11 +25,6 @@ public class AllyShuriken : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isShot)
         {
             ShootShuriken();
-        }
-
-        if (isShot)
-        {
-            MoveShuriken();
         }
 
         RotateShuriken();
@@ -49,9 +40,18 @@ public class AllyShuriken : MonoBehaviour
         isShot = true;
         playerController.currentAllyShuriken = null;
         playerController.ReceiveShuriken(-1);
+
+        Quaternion characterRotation = playerController.transform.rotation;
+        Vector3 shootDirection = characterRotation * Vector3.forward;
         transform.SetParent(null);
-        StartCoroutine(DestroyAfterTime(4f));
+        StartCoroutine(DestroyAfterTime(5f));
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezePositionY;
+        rb.velocity = shootDirection * shootSpeed;
     }
+
+
 
     IEnumerator DestroyAfterTime(float time)
     {
@@ -59,16 +59,12 @@ public class AllyShuriken : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void MoveShuriken()
-    {
-        transform.Translate(-Vector3.forward * shootSpeed * Time.deltaTime);
-    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == enemy)
         {
-            enemyController.ReceiveDamage(20);
+            enemyController.ReceiveDamage(30);
             Destroy(gameObject);
         }
     }
