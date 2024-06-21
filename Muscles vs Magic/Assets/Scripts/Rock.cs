@@ -20,9 +20,9 @@ public class Rock : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if (GameManager.Instance.points == 20)
+        if (GameManager.Instance.points == 3)
         {
-            Debug.Log("Tu ganas");
+            GameManager.Instance.ShowVictoryCanvas();
         }
     }
 }

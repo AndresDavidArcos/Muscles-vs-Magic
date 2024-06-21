@@ -16,11 +16,12 @@ public class Shot : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetKeyDown(KeyCode.Return))
         {
             if(Time.time > shotRateTime && GameManager.Instance.rockAmmo > 0)
             {
                 GameManager.Instance.rockAmmo --;
+                GameManager.Instance.totalAmmo --;
                 
                 GameObject newRock;
 
@@ -31,6 +32,11 @@ public class Shot : MonoBehaviour
                 shotRateTime = Time.time + shotRate;
 
                 Destroy(newRock, 5);
+            }
+
+            if(GameManager.Instance.totalAmmo == 0)
+            {
+                GameManager.Instance.ShowDefeatCanvas();
             }
         }
 
