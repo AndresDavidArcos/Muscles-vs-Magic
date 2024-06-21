@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 360
-  shootSpeed: 10
+  shootSpeed: 50
   enemy: {fileID: 1761842864542906889, guid: c4b2c6fa74600914a8a5f2171a4f45f8, type: 3}
   ally: {fileID: 1487909027049432180, guid: 15d667235beb26f4e9904c65463a2667, type: 3}
   playerController: {fileID: 0}

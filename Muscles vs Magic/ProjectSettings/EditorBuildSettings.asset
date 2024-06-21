@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mainmenu.unity
     guid: d3457e03cf49e744da6786fd7d5efa11
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/ShurikenFight.unity
+    guid: bb1cd8d6b590ab34883c04f61462c6d5
   m_configObjects: {}
