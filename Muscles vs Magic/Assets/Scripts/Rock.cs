@@ -22,7 +22,7 @@ public class Rock : MonoBehaviour
 
         if (GameManager.Instance.points == 20)
         {
-            Debug.Log("Tu ganas");
+            GameManager.Instance.ShowVictoryCanvas();
         }
     }
 }
