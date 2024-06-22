@@ -16326,7 +16326,7 @@ MonoBehaviour:
   loseText: {fileID: 1018819018}
   timerText: {fileID: 1387279503}
   sphereCount: 0
-  winCount: 10
+  winCount: 3
   timeLimit: 60
 --- !u!1 &2089862544
 GameObject:
